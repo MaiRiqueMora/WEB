@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gestión Usuarios</title>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="users.html">Gestión Usuarios</a>
+    <a href="otro_formulario.html">Publicaciones</a>
+  </div>
+
+  <h1>Sistema de Gestión Usuarios</h1>
+
+  <div class="controls">
+    <div>
+      <select id="dataSelector">
+        <option value="users">Usuarios</option>
+        <option value="posts">Publicaciones</option>
+        <option value="comments">Comentarios</option>
+      </select>
+      <button id="cargarDatosBtn">Cargar Datos</button>
+    </div>
+  </div>
+
+  <table id="dataTable" class="display">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Email</th>
+        <th>Sitio Web</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      const table = $('#dataTable').DataTable({
+        "paging": true,
+        "searching": false, 
+        "info": true,
+        "pageLength": 10,
+        "lengthChange": false, 
+        "language": {
+          "emptyTable": "No hay datos disponibles en la tabla",
+          "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+          "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+          "paginate": {
+            "previous": "Anterior",
+            "next": "Siguiente"
+          }
+        }
+      });
+
+      $('#cargarDatosBtn').click(function() {
+        const dataType = $('#dataSelector').val();
+        table.clear().draw();
+
+        $.getJSON(`https://jsonplaceholder.typicode.com/${dataType}`, function(data) {
+          data.forEach(item => {
+            let rowData = [];
+            if (dataType === 'users') {
+              rowData = [
+                item.id,
+                item.name,
+                item.username,
+                item.email,
+                item.website
+              ];
+            } else if (dataType === 'posts') {
+              rowData = [
+                item.id,
+                item.title,
+                '',
+                '',
+                ''
+              ];
+            } else if (dataType === 'comments') {
+              rowData = [
+                item.id,
+                item.name,
+                item.email.split('@')[0],
+                item.email,
+                ''
+              ];
+            }
+            table.row.add(rowData).draw();
+          });
+        }).fail(function() {
+          table.row.add(['Error', 'Error', 'Error', 'Error', 'Error']).draw();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #2a68af;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.controls select, .controls button, .controls input {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+  margin-bottom: 10px;
+}
+
+.dataTables_info, .dataTables_paginate {
+  padding: 10px;
+}
+
+.dataTables_paginate .paginate_button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #2a68af;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+ }
+
+ header {
+     background: #ddd;
+     padding: 0.5em 1em;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ nav {
+     background: #2a68af;
+     display: flex;
+ }
+
+ nav a {
+     color: white;
+     padding: 10px 15px;
+     text-decoration: none;
+ }
+
+ nav a:hover {
+     background: #1d4e89
+ }
+
+h1{
+     text-align: center;
+     margin-top: 20px;
+     }
+
+ .container {
+     width: 90%;
+     margin: auto;
+     margin-top: 20px;
+        }
+
+ .controls {
+     margin-bottom: 10px;
+     display: flex;
+     gap: 10px;
+        }
+
+ select, button {
+     padding: 6px 10px;
+        }
+   
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+    }
+
+ nav {
+     background: #2a68af;
+     display: flex;
+    }
+
+ nav a {
+     color: white;
+     padding: 10px 15px;
+     text-decoration: none;
+    }
+
+    nav a:hover {
+      background: #1d4e89;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .form-container {
+      width: 80%;
+      margin: auto;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+      width: 95%;
+      padding: 6px;
+      font-size: 1em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    .buttons {
+      grid-column: span 2;
+      text-align: right;
+    }
+
+    .error {
+      border: 2px solid red;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+    }
+
+     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background: #2a68af;
+      display: flex;
+    }
+
+    nav a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background: #1d4e89;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .form-container {
+      width: 80%;
+      margin: auto;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 95%;
+      padding: 6px;
+      font-size: 1em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .full-width {
+      grid-column: span 3;
+    }
+
+    .buttons {
+      grid-column: span 3;
+      text-align: right;
+    }
+
+    .error {
+      border: 2px solid red;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+    }
+   

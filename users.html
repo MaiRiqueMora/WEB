@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión Usuarios</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/estilos.css"></script>
+
+</head>
+
+ <nav>
+  <a href="index.html">Inicio</a>
+  <a href="users.html">Gestión Usuarios</a>
+  <a href="otro_formulario.html">Publicaciones</a>
+</nav>
+
+<body>
+  <h1>Gestión Usuarios</h1>
+
+  <form id="usuarioForm" class="form-container" novalidate>
+    <div class="form-group">
+      <label for="nombre">Nombre *</label>
+      <input type="text" id="nombre" name="nombre">
+      <div class="error-message" id="error-nombre"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="usuario">Usuario *</label>
+      <input type="text" id="usuario" name="usuario">
+      <div class="error-message" id="error-usuario"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="fecha">Fecha Ingreso *</label>
+      <input type="text" id="fecha" name="fecha" placeholder="dd/MM/yyyy">
+      <div class="error-message" id="error-fecha"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email">
+      <div class="error-message" id="error-email"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="genero">Género</label>
+      <select id="genero" name="genero">
+        <option value="">Seleccione</option>
+        <option value="femenino">Femenino</option>
+        <option value="masculino">Masculino</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sitio">Sitio Web</label>
+      <input type="text" id="sitio" name="sitio">
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="guardarBtn">Guardar</button>
+      <button type="button" id="cancelarBtn">Cancelar</button>
+    </div>
+  </form>
+
+  <script>
+    function resetErrores() {
+      $("input, select").removeClass("error");
+      $(".error-message").text("");
+    }
+
+    function validarFormulario() {
+      resetErrores();
+      let valido = true;
+
+      const nombre = $("#nombre").val().trim();
+      const usuario = $("#usuario").val().trim();
+      const fecha = $("#fecha").val().trim();
+      const email = $("#email").val().trim();
+
+      const fechaRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (!nombre) {
+        valido = false;
+        $("#nombre").addClass("error");
+        $("#error-nombre").text("El nombre es obligatorio.");
+      }
+
+      if (!usuario) {
+        valido = false;
+        $("#usuario").addClass("error");
+        $("#error-usuario").text("El usuario es obligatorio.");
+      }
+
+      if (!fecha || !fechaRegex.test(fecha)) {
+        valido = false;
+        $("#fecha").addClass("error");
+        $("#error-fecha").text("Debe ingresar una fecha válida en formato dd/MM/yyyy.");
+      }
+
+      if (!email || !emailRegex.test(email)) {
+        valido = false;
+        $("#email").addClass("error");
+        $("#error-email").text("Debe ingresar un correo válido.");
+      }
+
+      return valido;
+    }
+
+    $(document).ready(function () {
+      $("#guardarBtn").click(function () {
+        if (validarFormulario()) {
+          alert("Datos enviados correctamente.");
+          $("#usuarioForm")[0].reset();
+          resetErrores();
+        }
+      });
+
+      $("#cancelarBtn").click(function () {
+        $("#usuarioForm")[0].reset();
+        resetErrores();
+      });
+    });
+  </script>
+</body>
+</html>
